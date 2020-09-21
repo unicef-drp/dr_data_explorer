@@ -1,0 +1,7 @@
+data_explorer.content:
+  path: '/dr_data_explorer'
+  defaults:
+    _controller: 'Drupal\dr_data_explorer\Controller\DataExplorerController::content'
+    _title: 'Data Explorer'
+  requirements:
+    _permission: 'access content'
