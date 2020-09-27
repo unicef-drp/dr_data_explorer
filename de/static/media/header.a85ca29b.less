@@ -1,0 +1,27 @@
+.font(@name, @file, @style: normal, @weight: normal) {
+  @font-face {
+    font-family: @name;
+    src: url('@{file}.woff') format('woff'),
+         url('@{file}.eot?#iefix') format('embedded-opentype'),
+         url('@{file}.ttf') format('truetype');
+    font-style: @style;
+    font-weight: @weight;
+  }
+}
+
+@fonts-path: './fonts';
+
+@caecilia: 'caecilia';
+.font(@caecilia, '@{fonts-path}/@{caecilia}/roman');
+
+@bernino-sans: 'bernino-sans';
+.font('@{bernino-sans}-narrow-regular', '@{fonts-path}/@{bernino-sans}/narrow-regular');
+.font('@{bernino-sans}-narrow-bold', '@{fonts-path}/@{bernino-sans}/narrow-bold');
+.font('@{bernino-sans}-bold', '@{fonts-path}/@{bernino-sans}/bold');
+
+@color-font1: #0297C9;
+@color-font2: #7A7A7A;
+
+@size-font1: 24px;
+@size-font2: 16px;
+@size-font3: 12px;

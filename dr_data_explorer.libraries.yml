@@ -1,0 +1,10 @@
+dr-data-explorer:
+  js: 
+    js/a.js:{}
+    de/static/main.454b7a81.chunk.js:{}
+    de/static/runtime~main.a8a9905a.js:{}
+    de/static/2.2b4a680f.chunk.js:{}
+  css:
+    {}
+  drupalSettings:
+    myDrupalSetting:null

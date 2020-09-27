@@ -1,0 +1,354 @@
+/*FIXES Start*/
+
+#root {
+    margin-bottom: 2vh;
+}
+
+
+/*Overrides the global path,svg {fill: currentColor}*/
+
+#root path[fill="none"] {
+    fill: none;
+}
+
+
+/*Unsets the fixed column on the root's first child, allowing it to get 100% height*/
+
+#root> :first-child {
+    height: unset;
+}
+
+
+/*Unsets properties forced at body level*/
+
+#root button[type="button"],
+.data-explorer button[type="reset"],
+.data-explorer button[type="submit"] {
+    /*padding: unset;*/
+    background-color: unset;
+    border-radius: unset;
+    box-shadow: unset;
+    border: unset;
+}
+
+.data-explorer div[role="button"] {
+    padding: 2px 4px 2px 4px;
+    border-radius: unset;
+    box-shadow: unset;
+    border: unset;
+}
+
+
+/*Unsets the color change on focus set at body level*/
+
+#root .button:focus,
+#root [type=button]:focus,
+#root [type=reset]:focus,
+#root [type=submit]:focus,
+#root button:focus {
+    color: unset;
+}
+
+#root button:hover {
+    color: #1cabe2;
+}
+
+
+/*#root .pt-popover-target {
+    padding: 1px 1px;
+    height: 100%;
+}*/
+
+#root .pt-tag-remove:before {
+    color: black;
+}
+
+#root .pt-tag-remove {
+    font-family: "Icons16", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.8 !important;
+    padding: 2px;
+}
+
+
+/*#root [class="pt-tag-remove"]{background-color: blueviolet;}*/
+
+
+/*Forces additional fonts to fix an issue on OSX: doesn't have Segoe*/
+
+#root div,
+#root a {
+    font-family: "Segoe UI", "Roboto", "Ubuntu", "Open Sans", "sans-serif";
+}
+
+
+/*FIXES END*/
+
+
+/*Browser error*/
+
+#browserError {
+    padding: 50px 30px 30px 30px;
+    width: 100%;
+}
+
+.innerBrowserError {
+    padding: 1px 20px 4px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f0f0f1;
+}
+
+
+/*Browser error*/
+
+
+/*Additional DE Styling*/
+
+.currentFilterContainer {
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.TableConfig_wrapper {
+    padding-top: 20px;
+    border-top: 2px solid black;
+    margin-top: 20px;
+}
+
+.header_download {
+    display: flex;
+    justify-content: space-between;
+}
+
+.de_toolbar_items_wrapper {
+    border-top: none !important;
+}
+
+.de_vis_toolbar_wrapper {
+    border-top: none !important;
+}
+
+.header_download .de_toolbar_items_wrapper {
+    border-top: none !important;
+    background-color: #1cabe2;
+    border: 3px solid #1cabe2;
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+.header_download .de_toolbar_items_wrapper:hover {
+    background-color: #199acb;
+    border: 3px solid #199acb;
+}
+
+.header_download .de_toolbar_items_wrapper span {
+    margin-left: 6px;
+}
+
+.header_download .de_toolbar_items_wrapper button::before {
+    color: #fff;
+}
+
+.header_download .de_toolbar_items_wrapper .pt-button {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+}
+
+.header_download .de_toolbar_items_wrapper .pt-popover-open span {
+    color: #fff;
+}
+
+.div_lastnobs {
+    margin-bottom: 20px;
+}
+
+.de_toolbar_items_wrapper {
+    flex-wrap: nowrap;
+}
+
+.cell_flag{
+    color:#47494e;
+}
+
+
+/*Limited data message box */
+
+.div_dataLimited {
+    background-color: #fffbe5;
+    color: #5c3c00;
+    padding: 3px 15px;
+    margin: 15px 0 5px 0;
+    border-radius: 6px;
+}
+
+.dataLimited_msgBox_trans {
+    -webkit-transition: 1.0s;
+    -moz-transition: 1.0s;
+    -o-transition: 1.0s;
+    transition: 1.0s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/*Copyright footer*/
+
+#root .div_footer {
+    color: #7A7A7A;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+/*indicator links, from DE to Indicator Profile*/
+
+.indicatorEntry {
+    display: list-item;
+    background-color: rgba(19, 124, 189, 0.15);
+    color: #106ba3;
+    padding: 2px 6px;
+    margin: 5px;
+    width: fit-content;
+    border-radius: 3px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.goToIndic {
+    font-weight: bold;
+}
+
+.div_IndicatorLink {
+    background-color: #f0f0f1;
+    padding: 3px 15px;
+    margin: 15px 0 5px 0;
+    border-radius: 6px;
+}
+
+
+/*Help box*/
+
+
+#div_de_help {
+    background-color: #1cabe2;
+    border: 3px solid #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    padding: 8px;
+    margin: 10px;
+    color: #fff;
+    position: fixed;
+    right: 80px;
+    bottom: 40px;
+}
+
+@media only screen and (min-width: 700px) {
+    .help_text {
+        display: inline-block;
+    }
+    .help_text_small{
+        display: none !important;
+    }
+    #div_de_help {
+        max-width: 120px;
+    }
+}
+
+@media only screen and (max-width: 701px) {
+    .help_text {
+        display: none !important;
+    }
+    .help_text_small{
+        display: inline-block;
+    }
+    #div_de_help {
+        max-width: 80px;
+    }
+}
+
+#div_de_help a {
+    text-decoration: none;
+}
+
+#div_de_help span,
+#div_de_help i {
+    display: block;
+    margin-bottom: 3px;
+    color: #fff;
+}
+
+#div_de_help .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    cursor: pointer;
+    margin:2px;
+}
+
+#div_de_help .material-icons.md-18 {
+    font-size: 18px;
+}
+
+
+/*dataflow navigator*/
+
+.dfNav_item {
+    background-color: #f0f0f1;
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.dfNav_dfnametop {
+    padding: 6px 6px 6px 6px;
+}
+
+.df_nav_dfname {
+    padding: 3px 6px 3px 6px;
+    font-weight: 900;
+}
+
+.dfNav_link {
+    color: #0297c9;
+    padding: 6px 6px 6px 6px;
+    text-decoration: underline;
+}
+
+
+/*Mobile view filters*/
+
+.narrow_btnOpenFilters {
+    background-color: white;
+    color: black;
+    width: 100%;
+}
+
+.narrow_btnOpenFilters:hover {
+    color: black !important;
+}
+
+.narrow_btnOpenFilters .pt-icon-settings {
+    padding-right: 8px;
+}
+
+.narrow_btnCloseFilters {
+    width: 100%;
+}
+
+.hier_sel{
+    background-color: #137cbd;
+}
+.hier_unsel{
+    background-color: #ffffff;
+}
+
+.hierarchy_tree{
+    font-size: 14px;;
+}

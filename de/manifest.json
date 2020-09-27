@@ -1,0 +1,15 @@
+{
+  "short_name": "Unicef DE",
+  "name": "Unicef Data Explorer",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/ico"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

@@ -1,9 +1,89 @@
-A
-<h4>{{title}}</h4>
-<ul>
-{% for article in items %}
-<li>{{article.title}}</li>
-{% endfor %}
-</ul>
+<div id="browserError" style="display:none">
+    <div class="innerBrowserError">
+        <h3>Your browser is not supported</h3>
+        <p><strong>Please update your browser and try again</strong></p>
+        <i>ES script is needed</i>
+    </div>
+</div>
 
-FFFFF
+
+<script type="text/javascript">
+SETTINGS_override = {fusion: { url: "https://sdmx.data.unicef.org/ws/public/sdmxapi/rest",
+hasRangeHeader: !0,
+supportsReferencePartial: !1
+ }}
+</script>
+
+<script type="text/javascript">
+unicef_settings = {
+        "indicatorProfileUrl": "../../../indicator-profile",
+        "helpUrl": "/unicef-data-warehouse-faq/" }
+</script>
+
+<script type="text/javascript">
+    HIERARCHY_override={}
+</script>
+<script type="text/javascript">
+/*var DATAFLOW = {
+    datasourceId:"fusion",
+    agencyId:"UNICEF",
+    dataflowId:"GLOBAL_DATAFLOW",
+    version:"1.0",
+    dataquery:".ED_ANAR_L3../",
+    period: [2009, 2019],
+    backendId:"FUSION"
+}*/
+
+var DATAFLOW={
+    datasourceId:"fusion",
+    agencyId:"{{dqparams.agency}}",
+    dataflowId:"{{dqparams.dataflow}}",
+    version:"{{dqparams.version}}",
+    dataquery:"{{dqparams.dq}}",
+    period:[{{dqparams.startperiod}},{{dqparams.endperiod}}],
+    backendId:"{{options.backendid}}",
+}
+</script>
+
+<h1>{{title}}</h1>
+
+<div id="root">
+</div>
+
+
+{% for css in files_to_add.react_css %}
+<link rel="stylesheet" href="{{css}}">
+{% endfor %}
+<link rel="stylesheet" href="{{files_to_add.de_css}}">
+
+<script src="{{files_to_add.de_settings}}"></script>
+
+{% for react_script in files_to_add.react_js %}
+<script src="{{react_script}}"></script>
+{% endfor %}
+
+
+<script>
+    //Check if ES6 features are available
+    var ES6_Error = false;
+
+    function check() {
+        "use strict";
+
+        if (typeof Symbol == "undefined") return false;
+        try {
+            eval("class A {}");
+            eval("var B = (x) => x+1");
+        } catch (e) {
+            return false;
+        }
+
+        return true;
+    }
+    // The engine supports ES6 features you want to use
+    if (!check()) {
+        ES6_Error = true;
+        document.getElementById('root').style.display = "none";
+        document.getElementById('browserError').style.display = "";
+    }
+</script>

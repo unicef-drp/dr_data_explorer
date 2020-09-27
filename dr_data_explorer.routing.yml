@@ -1,5 +1,5 @@
 data_explorer.content:
-  path: '/dr_data_explorer'
+  path: '/data_explorer'
   defaults:
     _controller: 'Drupal\dr_data_explorer\Controller\DataExplorerController::content'
     _title: 'Data Explorer'
