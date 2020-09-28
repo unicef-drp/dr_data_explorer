@@ -4,5 +4,5 @@ description: A Data Explorer wrapper.
 package: UNICEF
 core: 8.x
 core_version_requirement: ^8 || ^9
-#configure: data_explorer.settings
+configure: dr_data_explorer.settings
 #configure: data_explorer.admin_settings

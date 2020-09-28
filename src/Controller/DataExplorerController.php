@@ -18,6 +18,7 @@ class DataExplorerController extends ControllerBase
         $module_path = drupal_get_path('module', 'dr_data_explorer');
 
         $de_settings_js = $module_path . "/js/de_settings/settings.js";
+        $de_url_changer_js = $module_path . "/js/url_changer.js";
         $de_css = $module_path . "/css/data_explorer.css";
 
 
@@ -26,7 +27,8 @@ class DataExplorerController extends ControllerBase
         $react_css_files = glob($react_path . "css/*.css");
 
         $ret = [
-            'de_settings' => $de_settings_js,
+            'de_settings_js' => $de_settings_js,
+            'de_url_changer_js'=>$de_url_changer_js,
             'de_css' => $de_css,
             'react_css' => $react_css_files,
             'react_js' => $react_js_files,

@@ -5,3 +5,10 @@ data_explorer.content:
     _title: 'Data Explorer'
   requirements:
     _permission: 'access content'
+data_explorer.settings:
+  path:'/admin/config/system/dr_data_explorer/config'
+  defauts:
+    _form:'\Drupal\dr_data_explorer\Form\Settings'
+    _title:'Data explorer'
+  requirements:
+    _permission: 'administer site configuration'
