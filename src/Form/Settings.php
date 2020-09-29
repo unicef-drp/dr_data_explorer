@@ -60,6 +60,20 @@ class Settings extends ConfigFormBase {
       );
 */
 
+    $form['de_indicator_profile_url'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Indicator profile URL'),
+        '#description' => $this->t('The URL to the indicator profiles page.'),
+        '#default_value' => $config->get('de_indicator_profile_url'),
+    );
+
+    $form['de_help_url'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Help URL'),
+        '#description' => $this->t('The URL to the help page.'),
+        '#default_value' => $config->get('de_help_url'),
+    );
+
  
     return parent::buildForm($form, $form_state);
   }
@@ -73,6 +87,8 @@ public function submitForm(array &$form, FormStateInterface $form_state) {
     // Set the submitted configuration setting
     ->set('de_title', $form_state->getValue('de_title'))
     ->set('de_api_url', $form_state->getValue('de_api_url'))
+    ->set('de_indicator_profile_url', $form_state->getValue('de_indicator_profile_url'))
+    ->set('de_help_url', $form_state->getValue('de_help_url'))
     //->set('de_hierarchy_cfg', $form_state->getValue('de_hierarchy_cfg'))
     //->set('de_forced_dims', $form_state->getValue('de_forced_dims'))
     ->save();

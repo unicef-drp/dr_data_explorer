@@ -9,8 +9,6 @@ namespace Drupal\dr_data_explorer\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Component\Utility\Html;
-use Drupal\Core\Site\Settings;
-use Drupal\dr_data_explorer\Form\Settings as FormSettings;
 
 class DataExplorerController extends ControllerBase
 {
@@ -29,6 +27,7 @@ class DataExplorerController extends ControllerBase
         $react_css_files = glob($react_path . "css/*.css");
 
         $ret = [
+            'module_path'=>$module_path,
             'de_settings_js' => $de_settings_js,
             'de_url_changer_js'=>$de_url_changer_js,
             'de_css' => $de_css,
@@ -67,8 +66,9 @@ class DataExplorerController extends ControllerBase
         $ret=[];
         $ret["title"]=$config->get("de_title");
         $ret["api_url"]=$config->get("de_api_url");
+        $ret["de_indicator_profile_url"]=$config->get("de_indicator_profile_url");
+        $ret["de_help_url"]=$config->get("de_help_url");
         return $ret;
-        //var_dump($config->get("de_title"));
     }
 
     /**
@@ -79,23 +79,6 @@ class DataExplorerController extends ControllerBase
      */
     public function content()
     {
-        /*
-        return [
-            '#type' => 'markup',
-            '#markup' => $this->t('Hello, World!'),
-        ];
-*/
-/*
-        $user_config=[];
-        $user_config["title"]=Settings::get("de_title",'Default title');
-
-
-        //var_dump(Settings::getAll());
-
-        $config = \Drupal::config('dr_data_explorer.settings');
-        var_dump($config->get("de_title"));
-*/
-
         $userConfig=$this->getUserConfig();
         var_dump($userConfig);
         

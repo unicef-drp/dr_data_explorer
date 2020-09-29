@@ -13,8 +13,8 @@ SETTINGS_override = {{userconfig.api_url|raw}}
 
 <script type="text/javascript">
 unicef_settings = {
-        "indicatorProfileUrl": "../../../indicator-profile",
-        "helpUrl": "/unicef-data-warehouse-faq/" }
+        "indicatorProfileUrl": "{{userconfig.de_indicator_profile_url}}",
+        "helpUrl": "{{userconfig.de_help_url}}" }
 </script>
 
 <script type="text/javascript">
@@ -34,6 +34,20 @@ var DATAFLOW={
 
 <div id="root">
 </div>
+
+{% if userconfig.de_help_url != null and userconfig.de_help_url != "" %}
+    <div id="div_de_help" class="pull-right">
+        <div class="closebtn" onclick="document.getElementById('div_de_help').style.display='none';">
+        <img src="{{files_to_add.module_path}}/icons/clear-white-18dp.svg" alt="close">
+        </div>
+        <a href="{{userconfig.de_help_url}}"><img src="{{files_to_add.module_path}}/icons/help-white-18dp.svg" alt="help"></a><a href="{{userconfig.de_help_url}}"><span class="help_text">Need help using this tool?</span><span class="help_text_small">Help</span>
+        </a>
+    </div>
+{% endif %}
+
+
+
+
 
 
 {% for css in files_to_add.react_css %}
