@@ -1,0 +1,5 @@
+dr_data_explorer.settings:
+  title: 'Data explorer'
+  description: 'Data explorer settings.'
+  route_name: dr_data_explorer.settings
+  parent: system.admin_config_system

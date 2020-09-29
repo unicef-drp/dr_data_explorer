@@ -1,14 +1,14 @@
-data_explorer.content:
+dr_data_explorer.content:
   path: '/data_explorer'
   defaults:
     _controller: 'Drupal\dr_data_explorer\Controller\DataExplorerController::content'
     _title: 'Data Explorer'
   requirements:
     _permission: 'access content'
-data_explorer.settings:
-  path:'/admin/config/system/dr_data_explorer/config'
-  defauts:
-    _form:'\Drupal\dr_data_explorer\Form\Settings'
-    _title:'Data explorer'
+dr_data_explorer.settings:
+  path: '/admin/config/system/dr_data_explorer/config'
+  defaults:
+    _form: '\Drupal\dr_data_explorer\Form\Settings'
+    _title: 'Data Explorer'
   requirements:
     _permission: 'administer site configuration'

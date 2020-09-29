@@ -8,10 +8,7 @@
 
 
 <script type="text/javascript">
-SETTINGS_override = {fusion: { url: "https://sdmx.data.unicef.org/ws/public/sdmxapi/rest",
-hasRangeHeader: !0,
-supportsReferencePartial: !1
- }}
+SETTINGS_override = {{userconfig.api_url|raw}}
 </script>
 
 <script type="text/javascript">
@@ -24,16 +21,6 @@ unicef_settings = {
     HIERARCHY_override={}
 </script>
 <script type="text/javascript">
-/*var DATAFLOW = {
-    datasourceId:"fusion",
-    agencyId:"UNICEF",
-    dataflowId:"GLOBAL_DATAFLOW",
-    version:"1.0",
-    dataquery:".ED_ANAR_L3../",
-    period: [2009, 2019],
-    backendId:"FUSION"
-}*/
-
 var DATAFLOW={
     datasourceId:"fusion",
     agencyId:"{{dqparams.agency}}",
@@ -44,8 +31,6 @@ var DATAFLOW={
     backendId:"{{options.backendid}}",
 }
 </script>
-
-<h1>{{title}}</h1>
 
 <div id="root">
 </div>

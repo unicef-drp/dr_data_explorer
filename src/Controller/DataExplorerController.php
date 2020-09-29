@@ -9,6 +9,8 @@ namespace Drupal\dr_data_explorer\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Component\Utility\Html;
+use Drupal\Core\Site\Settings;
+use Drupal\dr_data_explorer\Form\Settings as FormSettings;
 
 class DataExplorerController extends ControllerBase
 {
@@ -59,6 +61,16 @@ class DataExplorerController extends ControllerBase
         return $ret;
     }
 
+    private function getUserConfig()
+    {
+        $config = \Drupal::config('dr_data_explorer.settings');
+        $ret=[];
+        $ret["title"]=$config->get("de_title");
+        $ret["api_url"]=$config->get("de_api_url");
+        return $ret;
+        //var_dump($config->get("de_title"));
+    }
+
     /**
      * Display the markup.
      *
@@ -73,10 +85,22 @@ class DataExplorerController extends ControllerBase
             '#markup' => $this->t('Hello, World!'),
         ];
 */
+/*
+        $user_config=[];
+        $user_config["title"]=Settings::get("de_title",'Default title');
 
+
+        //var_dump(Settings::getAll());
+
+        $config = \Drupal::config('dr_data_explorer.settings');
+        var_dump($config->get("de_title"));
+*/
+
+        $userConfig=$this->getUserConfig();
+        var_dump($userConfig);
+        
         $fPaths = $this->getDE_filePaths();
         $dqParams = $this->getQueryParams();
-        var_dump($dqParams);
         $options = ["backendid" => "FUSION"];
 
 
@@ -87,10 +111,11 @@ class DataExplorerController extends ControllerBase
                     'dr_data_explorer/dr-data-explorer'
                 ]
             ],
-            '#title' => "ttt4",
+            '#title' => $userConfig["title"],
             '#files_to_add' => $fPaths,
             '#dqparams' => $dqParams,
             '#options' => $options,
+            '#userconfig'=>$userConfig,
         ];
     }
 }
