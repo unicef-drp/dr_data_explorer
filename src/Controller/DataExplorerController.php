@@ -12,32 +12,6 @@ use Drupal\Component\Utility\Html;
 
 class DataExplorerController extends ControllerBase
 {
-
-    private function getDE_filePaths()
-    {
-        $module_path = drupal_get_path('module', 'dr_data_explorer');
-
-        $de_settings_js = $module_path . "/js/de_settings/settings.js";
-        $de_url_changer_js = $module_path . "/js/url_changer.js";
-        $de_css = $module_path . "/css/data_explorer.css";
-
-
-        $react_path = $module_path . '/de/static/';
-        $react_js_files = glob($react_path . "js/*.js");
-        $react_css_files = glob($react_path . "css/*.css");
-
-        $ret = [
-            'module_path'=>$module_path,
-            'de_settings_js' => $de_settings_js,
-            'de_url_changer_js'=>$de_url_changer_js,
-            'de_css' => $de_css,
-            'react_css' => $react_css_files,
-            'react_js' => $react_js_files,
-        ];
-
-        return $ret;
-    }
-
     private function getQueryParams()
     {
         $ret = [
@@ -82,7 +56,6 @@ class DataExplorerController extends ControllerBase
         $userConfig=$this->getUserConfig();
         var_dump($userConfig);
         
-        $fPaths = $this->getDE_filePaths();
         $dqParams = $this->getQueryParams();
         $options = ["backendid" => "FUSION"];
 
@@ -95,7 +68,6 @@ class DataExplorerController extends ControllerBase
                 ]
             ],
             '#title' => $userConfig["title"],
-            '#files_to_add' => $fPaths,
             '#dqparams' => $dqParams,
             '#options' => $options,
             '#userconfig'=>$userConfig,

@@ -49,18 +49,16 @@ var DATAFLOW={
 
 
 
+ {% set res_v = "1.01" %}
+<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/js/de_settings/settings.js?v={{res_v}})"></script>
+<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/js/url_changer.js?v={{res_v}}"></script>
+<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/js/bundle.js?v={{res_v}}"></script>
+<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/js/2.chunk.js?v={{res_v}}"></script>
+<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/js/main.chunk.js?v={{res_v}}"></script>
 
-{% for css in files_to_add.react_css %}
-<link rel="stylesheet" href="{{css}}">
-{% endfor %}
-<link rel="stylesheet" href="{{files_to_add.de_css}}">
-
-<script src="{{files_to_add.de_settings_js}}"></script>
-<script src="{{files_to_add.de_url_changer_js}}"></script>
-
-{% for react_script in files_to_add.react_js %}
-<script src="{{react_script}}"></script>
-{% endfor %}
+<link rel="stylesheet" href="https://data.unicef.org/wp-content/plugins/dataexplorer/css/data_explorer.css?v={{res_v}}" />
+<link rel="stylesheet" href="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/css/main.chunk.css?v={{res_v}}" />
+<link rel="stylesheet" href="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/css/2.chunk.css?v={{res_v}}" />
 
 
 <script>
