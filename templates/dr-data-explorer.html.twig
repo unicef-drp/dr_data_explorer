@@ -1,87 +1,14 @@
-<div id="browserError" style="display:none">
-    <div class="innerBrowserError">
-        <h3>Your browser is not supported</h3>
-        <p><strong>Please update your browser and try again</strong></p>
-        <i>ES script is needed</i>
-    </div>
-</div>
-
-
-<script type="text/javascript">
-SETTINGS_override = {{userconfig.api_url|raw}}
-</script>
-
-<script type="text/javascript">
-unicef_settings = {
-        "indicatorProfileUrl": "{{userconfig.de_indicator_profile_url}}",
-        "helpUrl": "{{userconfig.de_help_url}}" }
-</script>
-
-<script type="text/javascript">
-    HIERARCHY_override={}
-</script>
-<script type="text/javascript">
-var DATAFLOW={
-    datasourceId:"fusion",
-    agencyId:"{{dqparams.agency}}",
-    dataflowId:"{{dqparams.dataflow}}",
-    version:"{{dqparams.version}}",
-    dataquery:"{{dqparams.dq}}",
-    period:[{{dqparams.startperiod}},{{dqparams.endperiod}}],
-    backendId:"{{options.backendid}}",
-}
-</script>
 
 <div id="root">
 </div>
 
-{% if userconfig.de_help_url != null and userconfig.de_help_url != "" %}
-    <div id="div_de_help" class="pull-right">
-        <div class="closebtn" onclick="document.getElementById('div_de_help').style.display='none';">
-        <img src="{{files_to_add.module_path}}/icons/clear-white-18dp.svg" alt="close">
-        </div>
-        <a href="{{userconfig.de_help_url}}"><img src="{{files_to_add.module_path}}/icons/help-white-18dp.svg" alt="help"></a><a href="{{userconfig.de_help_url}}"><span class="help_text">Need help using this tool?</span><span class="help_text_small">Help</span>
-        </a>
-    </div>
-{% endif %}
-
-
-
-
-
- {% set res_v = "1.01" %}
-<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/js/de_settings/settings.js?v={{res_v}})"></script>
-<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/js/url_changer.js?v={{res_v}}"></script>
-<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/js/bundle.js?v={{res_v}}"></script>
-<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/js/2.chunk.js?v={{res_v}}"></script>
-<script src="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/js/main.chunk.js?v={{res_v}}"></script>
-
-<link rel="stylesheet" href="https://data.unicef.org/wp-content/plugins/dataexplorer/css/data_explorer.css?v={{res_v}}" />
-<link rel="stylesheet" href="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/css/main.chunk.css?v={{res_v}}" />
-<link rel="stylesheet" href="https://data.unicef.org/wp-content/plugins/dataexplorer/de/static/css/2.chunk.css?v={{res_v}}" />
-
 
 <script>
-    //Check if ES6 features are available
-    var ES6_Error = false;
-
-    function check() {
-        "use strict";
-
-        if (typeof Symbol == "undefined") return false;
-        try {
-            eval("class A {}");
-            eval("var B = (x) => x+1");
-        } catch (e) {
-            return false;
-        }
-
-        return true;
-    }
-    // The engine supports ES6 features you want to use
-    if (!check()) {
-        ES6_Error = true;
-        document.getElementById('root').style.display = "none";
-        document.getElementById('browserError').style.display = "";
-    }
+//path to remote files
+//var remote_files_path = "https://data.unicef.org/wp-content/plugins/wp_dotstat_data_explorer_cfg";
+//name of JSON config file for this particular instance of the Data Explorer
+var json_config = "PCO_subnat"
+//version number so we can always increment if we need to force a cache refresh
+var version="1.0";
 </script>
+<script src="https://data.unicef.org/wp-content/plugins/wp_dotstat_data_explorer_cfg/js/bundle.js?v=1.0"></script>
